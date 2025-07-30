@@ -1,0 +1,77 @@
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pixel Gärtnerei</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "simplex-noise": "https://esm.sh/simplex-noise@4.0.1"
+            }
+        }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="app-container">
+        <canvas id="game-canvas"></canvas>
+
+        <div id="start-screen" class="ui-overlay">
+            <div class="start-dialog">
+                <h1>Pixel Gärtnerei</h1>
+                <p>Generiere eine Welt und beginne deine Farm. Wiesen (grün) können gekauft und bewirtschaftet werden.</p>
+                <div id="map-preview-container">
+                    <canvas id="map-preview-canvas"></canvas>
+                </div>
+                <button id="generate-map-btn" class="ui-button">Andere Welt generieren</button>
+                <p id="loading-text">Lade Grafiken...</p>
+                <button id="start-game-btn" class="ui-button" disabled>Farm starten!</button>
+            </div>
+        </div>
+
+        <div id="game-ui" class="hidden">
+            <div id="info-bar">
+                <span id="day-display">Tag: 1</span>
+                <span id="money-display">💰 100 G</span>
+                <span id="water-display">💧 100 / 100</span>
+            </div>
+
+            <div id="toolbar">
+                <button class="tool-btn active" data-tool="hand" title="Pflanzen/Info">Pflanzen</button>
+                <button class="tool-btn" data-tool="hoe" title="Pflügen">Pflügen</button>
+                <button class="tool-btn" data-tool="watering_can" title="Gießen">Gießen</button>
+                <button class="tool-btn" data-tool="buy_land" title="Kaufen (Land/Wasser)">Kaufen</button>
+            </div>
+
+            <div id="seed-selector" class="hidden">
+                <h3>Samen auswählen</h3>
+                <div id="seed-options"></div>
+                <button id="close-seed-selector">Schließen</button>
+            </div>
+
+            <div id="water-purchase-modal" class="hidden">
+                <h3>Wasser kaufen</h3>
+                <p>Dein Vorrat: <strong id="modal-water-level">100 / 100</strong></p>
+                <p class="cost-info">Kosten: 1 G pro Einheit Wasser</p>
+                <button id="fill-water-btn" class="ui-button">Komplett auffüllen</button>
+                <div class="purchase-amount-container">
+                    <input type="number" id="water-amount-input" min="1" value="10" class="ui-input">
+                    <button id="buy-water-amount-btn" class="ui-button">Kaufen</button>
+                </div>
+                <button id="close-water-modal-btn">Schließen</button>
+            </div>
+        </div>
+        
+        <div id="notification" class="hidden"></div>
+    </div>
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
