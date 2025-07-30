@@ -1,5 +1,5 @@
 {
-  "name": "pixel-gärtnerei",
+  "name": "pixelplantage",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "simplex-noise": "4.0.1"
+
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
